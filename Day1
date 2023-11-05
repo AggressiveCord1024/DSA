@@ -1,0 +1,48 @@
+//------------------------------- 11. Container with Most Water -----------------------------//
+
+public int maxArea(int[] height) {
+        int len = 0;
+        int hei =0;
+        int i =0;
+        int j= height.length-1;
+        int ans = (j-i)*Math.min(height[0],height[height.length-1]);
+
+        while(i != j){
+            if(height[i]<height[j]){
+                i++;
+            }else{
+                j--;
+            }
+            int ans1 = (j-i)*Math.min(height[i],height[j]);
+            ans = Math.max(ans,ans1);
+        }
+        return ans;
+}
+
+///Time Complexity --> O(n)
+///Space Complexity --> Constant
+
+
+
+//------------------------------- 27. Remove Elements -----------------------------//
+
+public int removeElement(int[] nums, int val) {
+        int k=0;
+        int[] temp = new int[nums.length];
+        for(int ele : nums){
+            if(ele != val){
+                temp[k] = ele; 
+                k++;
+            }
+        }
+
+        for(int i=0;i<temp.length;i++){
+           nums[i] = temp[i];
+        }
+
+        return k;
+}
+
+///Time complexity :- O(n)
+/// Space Complexity :- O(n)
+
